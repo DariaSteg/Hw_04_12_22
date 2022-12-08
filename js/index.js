@@ -6,8 +6,6 @@
 
 // Створити функцію getVolume3DFigure, яка приймає будь яку 3d фігуру і повертає її об'єм.
 
-
-
 class Figeure3D {
   constructor(name) {
     this.name = name;}
@@ -19,14 +17,9 @@ class Figeure3D {
       this._name = name;
     }
 
-    getVolumOfCube() {
-      return this._length*this._width* this._height;
+    getVolumOfFigeure() {
+      throw new Error()
     }
-    getVolumOfSphera() {
-      return (4 / 3 * Math.PI * this._radius ** 3)
-    }
-  
-
 
   }
  
@@ -65,7 +58,9 @@ class Cube extends Figeure3D{
       }
       this._height = height;
     }
-
+    getVolumOfFigeure() {
+      return this._length*this._width* this._height;
+    }
 
 }
 
@@ -84,17 +79,15 @@ class Sphere extends Figeure3D {
     }
     this._radius = radius;
   }
+  getVolumOfFigeure() {
+    return (4 / 3 * Math.PI * this._radius ** 3)
+  }
+
 
 }
 
 function getVolume3DFigure (nameOfFiguere) {
-  if(nameOfFiguere === 'Sphere' ){
-  //  return super.getVolumOfSphera();
-  }
-  else if 
-  (nameOfFiguere === 'cube' ){
-  //  return super.getVolumOfCube();
-  }
+  return nameOfFiguere.getVolumOfFigeure()
 }
 
 
@@ -104,16 +97,8 @@ try {
   const cube = new Cube (3,3,3)
   const sphere = new Sphere (4)
   console.log(figeure3D);
-  console.log(cube);
-  console.log(cube.getVolumOfCube())
-  console.log(sphere.getVolumOfSphera())
-  console.log(getVolume3DFigure('Sphere'))
+  console.log(getVolume3DFigure(cube))
 } catch (error) {
   console.log(error);
 }
 
-
-
-
-
-  
